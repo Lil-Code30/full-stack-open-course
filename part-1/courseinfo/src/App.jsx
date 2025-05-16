@@ -18,26 +18,28 @@ function App() {
     );
   }
 
+  const Part = (props) => {
+    return (
+      <p>
+         {props.part} {props.ex};
+      </p>
+    );
+  }
+
   const Content = (props) => {
     return (
-      <>
-        <p>
-          {props.part1} {props.ex1}
-        </p>
-        <p>
-          {props.part2} {props.ex2}
-        </p>
-        <p>
-          {props.part3} {props.ex3}
-        </p>
-      </>
+      <div>
+        <Part part= {props.part1} ex={props.ex1} />
+        <Part part= {props.part2} ex={props.ex2} />
+        <Part part= {props.part3} ex={props.ex3} />
+      </div>
     );
   }
 
   return (
     <div>
       <Header course={course}/>
-      <Content part1= {part1} ex1={exercises1} part2= {part2} ex2={exercises2} part3= {part3} ex3={exercises3}/>
+      <Content  part1= {part1} ex1={exercises1}  part2= {part2} ex2={exercises2} part3= {part3} ex3={exercises3}/>
       <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </div>
   )

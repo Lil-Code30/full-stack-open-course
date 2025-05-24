@@ -1,3 +1,3 @@
 # 📖Full Stack Open Course
 
-All my Exercises for the [Full Stack open](https://fullstackopen.com/en/)
+All solutions of the Exercises from the [Full Stack open](https://fullstackopen.com/en/)

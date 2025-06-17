@@ -1,12 +1,4 @@
-import { useState } from "react";
-
-import DisplayCounter from "./components/DisplayCounter";
-import Button from "./components/Button";
-
 function App() {
-  const name = "Peter";
-  const age = 10;
-
   const course = {
     name: "Half Stack application development",
     parts: [
@@ -24,8 +16,6 @@ function App() {
       },
     ],
   };
-
-  const [counter, setCounter] = useState(0);
 
   // All components here
 
@@ -74,9 +64,6 @@ function App() {
       </p>
     );
   };
-  const increaseByOne = () => setCounter(counter + 1);
-  const setToZero = () => setCounter(0);
-  const decreaseByOne = () => setCounter(counter - 1);
 
   return (
     <>
@@ -84,17 +71,6 @@ function App() {
         <Header course={course.name} />
         <Content parts={course.parts} />
         <Total parts={course.parts} />
-      </div>
-      <div>
-        <h1>Greetings</h1>
-        <Hello name="Maya" age={26 + 10} />
-        <Hello name={name} age={age} />
-      </div>
-      <div>
-        <DisplayCounter counter={counter} />
-        <Button text="plus" onClick={increaseByOne} />
-        <Button text="Zero" onClick={setToZero} />
-        <Button text="minus" onClick={decreaseByOne} />
       </div>
     </>
   );

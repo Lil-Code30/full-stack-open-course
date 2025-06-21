@@ -6,10 +6,10 @@ import Hello from "./components/Hello";
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const [clicks, setClicks] = useState({
-    left: 0,
-    right: 0,
-  });
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(0);
+  const [allClicks, setAll] = useState([]);
+  const [total, SetTotal] = useState(0);
 
   const name = "Peter";
   const age = 10;
@@ -18,17 +18,16 @@ function App() {
   const decreaseByOne = () => setCounter(counter - 1);
 
   const handleLeftClick = () => {
-    setClicks({
-      ...clicks,
-      left: clicks.left + 1,
-    });
+    setAll(allClicks.concat("L"));
+    const updatedLeft = left + 1;
+    setLeft(updatedLeft);
+    SetTotal(updatedLeft + right);
   };
-
   const handleRightClick = () => {
-    setClicks({
-      ...clicks,
-      right: clicks.right + 1,
-    });
+    setAll(allClicks.concat("R"));
+    const updatedRight = right + 1;
+    setRight(updatedRight);
+    SetTotal(left + updatedRight);
   };
 
   return (
@@ -49,10 +48,12 @@ function App() {
       </div>
       <br />
       <div>
-        {clicks.left}
+        {left}
         <button onClick={handleLeftClick}>left</button>
         <button onClick={handleRightClick}>right</button>
-        {clicks.right}
+        {right}
+        <p>{allClicks.join(" ")}</p>
+        <p>Total clicks {total}</p>
       </div>
     </>
   );

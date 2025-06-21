@@ -3,6 +3,7 @@ import { useState } from "react";
 import DisplayCounter from "./components/DisplayCounter";
 import Button from "./components/Button";
 import Hello from "./components/Hello";
+import History from "./components/History";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -49,10 +50,11 @@ function App() {
       <br />
       <div>
         {left}
-        <button onClick={handleLeftClick}>left</button>
-        <button onClick={handleRightClick}>right</button>
+        <Button text="Left" onClick={handleLeftClick} />
+        <Button text="Right" onClick={handleRightClick} />
         {right}
-        <p>{allClicks.join(" ")}</p>
+        <br />
+        <History allClicks={allClicks} />
         <p>Total clicks {total}</p>
       </div>
     </>

@@ -11,6 +11,12 @@ function App() {
   const [right, setRight] = useState(0);
   const [allClicks, setAll] = useState([]);
   const [total, SetTotal] = useState(0);
+  const [value, setValue] = useState(10);
+
+  const setToValue = (newValue) => () => {
+    console.log("value now", newValue);
+    setValue(newValue);
+  };
 
   const name = "Peter";
   const age = 10;
@@ -56,6 +62,17 @@ function App() {
         <br />
         <History allClicks={allClicks} />
         <p>Total clicks {total}</p>
+      </div>
+      <br />
+      <div>
+        <p>{value}</p>
+        <button onClick={setToValue(1000)}>thousand</button>
+        <br />
+        <br />
+        <button onClick={setToValue(0)}>reset</button>
+        <br />
+        <br />
+        <button onClick={setToValue(value + 1)}>increment</button>{" "}
       </div>
     </>
   );

@@ -21,7 +21,7 @@ function App() {
       <h1 className="text-3xl font-bold">Give feedback</h1>
       <div className="flex gap-x-2 mt-2">
         {choices.map((el) => (
-          <Button onClick={el.fn} text={el.text} />
+          <Button key={el.text} onClick={el.fn} text={el.text} />
         ))}
       </div>
       {total !== 0 ? (

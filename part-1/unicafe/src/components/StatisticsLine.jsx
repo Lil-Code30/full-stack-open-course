@@ -1,7 +1,8 @@
 export default function StatisticsLine({ text, value }) {
   return (
-    <p>
-      {text} : {value}
-    </p>
+    <tr>
+      <td className="border px-1">{text}</td>
+      <td className="border px-1">{value}</td>
+    </tr>
   );
 }

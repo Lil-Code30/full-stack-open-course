@@ -24,9 +24,16 @@ function App() {
           <Button onClick={el.fn} text={el.text} />
         ))}
       </div>
-      <Statistics
-        data={{ good, neutral, bad, total, average, positvePercentage }}
-      />
+      {total !== 0 ? (
+        <Statistics
+          data={{ good, neutral, bad, total, average, positvePercentage }}
+        />
+      ) : (
+        <>
+          <h2 className="text-2xl font-semibold mt-2">Statistics</h2>
+          <p>No feeback given</p>
+        </>
+      )}
     </div>
   );
 }

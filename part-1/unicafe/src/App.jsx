@@ -11,6 +11,10 @@ function App() {
     { text: "neutral", fn: () => setNeutral((prev) => prev + 1) },
     { text: "bad", fn: () => setBad((prev) => prev + 1) },
   ];
+
+  const total = good + neutral + bad;
+  const average = (1 * good + 0 * neutral + bad * -1) / total;
+  const positvePercentage = (good / total) * 100;
   return (
     <div className="p-3">
       <h1 className="text-3xl font-bold">Give feedback</h1>
@@ -23,6 +27,9 @@ function App() {
       <p>Good : {good}</p>
       <p>Neutral : {neutral}</p>
       <p>Bad : {bad}</p>
+      <p>All : {total}</p>
+      <p>Average : {average}</p>
+      <p>%Positive : {positvePercentage}%</p>
     </div>
   );
 }

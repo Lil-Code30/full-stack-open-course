@@ -30,9 +30,12 @@ const App = () => {
     });
   };
 
+  const maxValue = Math.max(...votes);
+  const indexOfMax = votes.indexOf(maxValue);
   return (
     <div className="py-2 px-3">
-      <p className="text-4xl font-semibold my-2">{anecdotes[selected]}</p>
+      <h1 className="text-4xl font-bold">Anecdote of the day</h1>
+      <p className="text-2xl font-medium my-2">{anecdotes[selected]}</p>
       <p>has {votes[selected]}</p>
       <button
         onClick={handleVote}
@@ -46,6 +49,10 @@ const App = () => {
       >
         Next Anecdote
       </button>
+
+      <h1 className="text-4xl font-bold">Anecdote with most votes</h1>
+      <p className="text-2xl font-medium my-2">{anecdotes[indexOfMax]}</p>
+      <p>has {maxValue}</p>
     </div>
   );
 };

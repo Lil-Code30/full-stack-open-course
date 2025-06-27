@@ -14,18 +14,35 @@ const App = () => {
 
   const [selected, setSelected] = useState(0);
 
+  const votesArray = anecdotes.map((_) => 0);
+
+  const [votes, setVotes] = useState(votesArray);
+
   const handleAnecdote = () => {
     const randomNum = Math.floor(Math.random() * anecdotes.length - 1) + 1;
-
     setSelected(randomNum);
+  };
+  const handleVote = () => {
+    setVotes((prev) => {
+      const copyPrev = [...prev];
+      copyPrev[selected]++;
+      return copyPrev;
+    });
   };
 
   return (
     <div className="py-2 px-3">
       <p className="text-4xl font-semibold my-2">{anecdotes[selected]}</p>
+      <p>has {votes[selected]}</p>
+      <button
+        onClick={handleVote}
+        className="hover:cursor-pointer border rounded font-medium text-md px-1  my-2"
+      >
+        Vote
+      </button>
       <button
         onClick={handleAnecdote}
-        className="hover:cursor-pointer border rounded font-medium text-md px-1 my-2"
+        className="hover:cursor-pointer border rounded font-medium text-md px-1 mx-2 my-2"
       >
         Next Anecdote
       </button>

@@ -20,8 +20,16 @@ const App = () => {
         exercises: 14,
         id: 3,
       },
+      {
+        name: "Redux",
+        exercises: 11,
+        id: 4,
+      },
     ],
   };
+  const total = course.parts.reduce((sum, part) => {
+    return sum + part.exercises;
+  }, 0);
 
   return (
     <div>
@@ -29,6 +37,7 @@ const App = () => {
       {course.parts.map((course) => (
         <Course key={course.id} course={course} />
       ))}
+      <h4>total of {total} exercises</h4>
     </div>
   );
 };

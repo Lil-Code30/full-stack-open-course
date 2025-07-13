@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Filter from "./components/Filter";
+import PersonForm from "./components/PersonForm";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -36,40 +38,32 @@ const App = () => {
   );
 
   const result = filterQuery ? FilteredContacts : persons;
-
+  const handleSetNewNumber = (e) => {
+    setNewNumber(e.target.value);
+  };
+  const handleSetFilterQuery = (e) => {
+    setFilterQuery(e.target.value);
+  };
+  const handleSetNewPerson = (e) => {
+    setNewPerson(e.target.value);
+  };
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>
-        Filter shown with :{" "}
-        <input
-          onChange={(e) => setFilterQuery(e.target.value)}
-          value={filterQuery}
-        />
-      </div>
+      <Filter
+        filterQuery={filterQuery}
+        handleSetFilterQuery={handleSetFilterQuery}
+      />
       <br />
-      <form onSubmit={handleSubmit}>
-        <h2>Add a New Contact</h2>
-        <div>
-          name:{" "}
-          <input
-            onChange={(e) => setNewPerson(e.target.value)}
-            value={newPerson}
-          />
-        </div>
-        <br />
-        <div>
-          Number:{" "}
-          <input
-            value={newNumber}
-            onChange={(e) => setNewNumber(e.target.value)}
-          />
-        </div>
-        <br />
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <h2>Add a New Contact</h2>
+      <PersonForm
+        handleSubmit={handleSubmit}
+        newPerson={newPerson}
+        handleSetNewNumber={handleSetNewNumber}
+        newNumber={newNumber}
+        handleSetNewPerson={handleSetNewPerson}
+      />
+
       <h2>Numbers</h2>
       {result.map((item, i) => {
         return (
